@@ -23,7 +23,7 @@ class AuthenticateClientUseCase {
     if (!passwordMatch) throw new Error("username or password invalid!");
 
     // Gerar o token
-    const token = sign({username}, String(process.env.SECRET_KEY),{
+    const token = sign({username}, String(process.env.CLIENT_SECRET_KEY),{
       subject: client.id,
       expiresIn: "1d"
     });
